@@ -1,0 +1,11 @@
+version: 0.2
+phases: 
+  build:
+    commands:
+      - echo "this is the build phase"
+  post_build:
+    commands:
+      - echo "website building start"
+artifacts:
+  files:
+    - '**/*'
