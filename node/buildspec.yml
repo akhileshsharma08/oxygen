@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+      - . ~/.nvm/nvm.sh
+      - nvm install 16
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install pm2 -g
+      - npm install serve -g
+      - npm install 
+  build:
+    commands:
+      - echo creating build of project 
+      - npm run build
+  post_build:
+    commands:
+      - starting the deployment...
+      - pm2 serve build 80 --spa
+artifacts:
+  file:
+    '**/*'
