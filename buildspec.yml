@@ -1,11 +1,13 @@
 version: 0.2
-phases: 
+
+phases:
   build:
     commands:
-      - echo "this is the build phase"
+    - echo "This is build phase... Zipping my webpage"
+ 
   post_build:
     commands:
-      - echo "website building start"
+    - echo "Deployed to S3"
 artifacts:
   files:
     - '**/*'
